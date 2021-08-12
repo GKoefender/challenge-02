@@ -129,7 +129,7 @@ describe('Todos', () => {
     const todoResponse = await request(app)
       .post('/todos')
       .send({
-        title: 'test todo',
+        title: 'test todo3',
         deadline: todoDate
       })
       .set('username', userResponse.body.username);
@@ -167,6 +167,12 @@ describe('Todos', () => {
         name: 'John Doe',
         username: 'user5'
       });
+
+    const listResponse1 = await request(app)
+      .get('/todos')
+      .set('username', 'user5');
+
+    console.log(listResponse1.body)
 
     const todoDate = new Date();
 
